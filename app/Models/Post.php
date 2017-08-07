@@ -15,4 +15,20 @@ class Post extends Model
     protected $fillable = [
         'title', 'summary', 'description', 'author_id'
     ];
+
+    /**
+     * The categories that belong to the post.
+     */
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
+
+    /**
+     * The tags that belong to the post.
+     */
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }

@@ -14,4 +14,12 @@ class Category extends Model
     protected $fillable = [
         'name'
     ];
+
+    /**
+     * The posts that belong to the category.
+     */
+    public function posts()
+    {
+        return $this->belongsToMany(Post::class);
+    }
 }

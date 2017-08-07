@@ -14,4 +14,12 @@ class File extends Model
     protected $fillable = [
         'type', 'filable_id', 'filable_type', 'name'
     ];
+
+    /**
+     * Get all of the owning filable models.
+     */
+    public function filable()
+    {
+        return $this->morphTo();
+    }
 }

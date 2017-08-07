@@ -15,4 +15,12 @@ class Url extends Model
     protected $fillable = [
         'type', 'urlable_type', 'urlable_id', 'slug'
     ];
+
+    /**
+     * Get all of the owning urlable models.
+     */
+    public function urlable()
+    {
+        return $this->morphTo();
+    }
 }
