@@ -18,6 +18,8 @@ class CreatePostsTable extends Migration
             $table->text('title');
             $table->text('summary')->nullable();
             $table->text('description');
+            $table->datetime('from_date')->nullable();
+            $table->datetime('to_date')->nullable();
             $table->integer('author_id')->unsigned();
             $table->foreign('author_id')->references('id')->on('users');
             $table->timestamps();
