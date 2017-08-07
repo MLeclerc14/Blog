@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Homepage
+Route::name('home')->get('/', 'PageController@home');
+
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin'], function(){
+    // Dashboard route
+    Route::name('dashboard.index')->get('/', 'DashboardController@index');
 });
