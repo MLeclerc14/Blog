@@ -13,7 +13,10 @@
 
 // Homepage
 Route::name('home')->get('/', 'PageController@home');
+// Authentication
+Auth::routes();
 
+// Admin
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin'], function(){
     // Dashboard route
     Route::name('dashboard.index')->get('/', 'DashboardController@index');

@@ -5,7 +5,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <meta name="api-token" content="{{ Auth::user()->api_token }}">
         <script>
             window.Laravel = <?php echo json_encode([
                 'csrfToken' => csrf_token(),
@@ -14,7 +13,7 @@
         @section('header')
             <title>{{ config('app.name', '') }}</title>
         @show
-        <link rel="stylesheet" href="/back/css/app.css">
+        <link rel="stylesheet" href="/auth/css/app.css">
     </head>
     <body>
         <div id="app">
@@ -22,6 +21,6 @@
                 @yield('content')
             </div>
         </div>
-        <script src="/back/js/app.js"></script>
+        <script src="/auth/js/app.js"></script>
     </body>
 </html>
