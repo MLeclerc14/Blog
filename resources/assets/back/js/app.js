@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+require('./theme');
 
 import { sync } from 'vuex-router-sync';
 import Vue from 'vue';
@@ -41,3 +42,5 @@ const app = new Vue({
   el: '#app',
   render: h => h(Root)
 });
+
+// https://forum.vuejs.org/t/structuring-very-large-applications/840/3 structuring project

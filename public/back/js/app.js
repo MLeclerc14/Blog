@@ -10991,6 +10991,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  */
 
 __webpack_require__(12);
+__webpack_require__(71);
 
 
 
@@ -45506,6 +45507,517 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = ({});
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports) {
+
+if (typeof jQuery === "undefined") {
+    throw new Error("jQuery plugins need to be before this file");
+}
+
+$.AdminBSB = {};
+$.options = {
+    colors: {
+        red: '#F44336',
+        pink: '#E91E63',
+        purple: '#9C27B0',
+        deepPurple: '#673AB7',
+        indigo: '#3F51B5',
+        blue: '#2196F3',
+        lightBlue: '#03A9F4',
+        cyan: '#00BCD4',
+        teal: '#009688',
+        green: '#4CAF50',
+        lightGreen: '#8BC34A',
+        lime: '#CDDC39',
+        yellow: '#ffe821',
+        amber: '#FFC107',
+        orange: '#FF9800',
+        deepOrange: '#FF5722',
+        brown: '#795548',
+        grey: '#9E9E9E',
+        blueGrey: '#607D8B',
+        black: '#000000',
+        white: '#ffffff'
+    },
+    leftSideBar: {
+        scrollColor: 'rgba(0,0,0,0.5)',
+        scrollWidth: '4px',
+        scrollAlwaysVisible: false,
+        scrollBorderRadius: '0',
+        scrollRailBorderRadius: '0'
+    },
+    dropdownMenu: {
+        effectIn: 'fadeIn',
+        effectOut: 'fadeOut'
+    }
+
+    /* Left Sidebar - Function =================================================================================================
+    *  You can manage the left sidebar menu options
+    *
+    */
+};$.leftSideBar = {
+    activate: function activate() {
+        var _this = this;
+        var $body = $('body');
+        var $overlay = $('.overlay');
+
+        //Close sidebar
+        $(window).click(function (e) {
+            var $target = $(e.target);
+            if (e.target.nodeName.toLowerCase() === 'i') {
+                $target = $(e.target).parent();
+            }
+
+            if (!$target.hasClass('bars') && _this.isOpen() && $target.parents('#leftsidebar').length === 0) {
+                if (!$target.hasClass('js-right-sidebar')) $overlay.fadeOut();
+                $body.removeClass('overlay-open');
+            }
+        });
+
+        $.each($('.menu-toggle.toggled'), function (i, val) {
+            $(val).next().slideToggle(0);
+        });
+
+        //When page load
+        $.each($('.menu .list li.active'), function (i, val) {
+            var $activeAnchors = $(val).find('a:eq(0)');
+
+            $activeAnchors.addClass('toggled');
+            $activeAnchors.next().show();
+        });
+
+        //Collapse or Expand Menu
+        $('.menu-toggle').on('click', function (e) {
+            var $this = $(this);
+            var $content = $this.next();
+
+            if ($($this.parents('ul')[0]).hasClass('list')) {
+                var $not = $(e.target).hasClass('menu-toggle') ? e.target : $(e.target).parents('.menu-toggle');
+
+                $.each($('.menu-toggle.toggled').not($not).next(), function (i, val) {
+                    if ($(val).is(':visible')) {
+                        $(val).prev().toggleClass('toggled');
+                        $(val).slideUp();
+                    }
+                });
+            }
+
+            $this.toggleClass('toggled');
+            $content.slideToggle(320);
+        });
+
+        //Set menu height
+        _this.setMenuHeight();
+        _this.checkStatuForResize(true);
+        $(window).resize(function () {
+            _this.setMenuHeight();
+            _this.checkStatuForResize(false);
+        });
+
+        //Set Waves
+        Waves.attach('.menu .list li a', ['waves-block']);
+        Waves.init();
+    },
+    setMenuHeight: function setMenuHeight() {
+        if (typeof $.fn.slimScroll != 'undefined') {
+            var configs = $.options.leftSideBar;
+            var height = $(window).height() - ($('.legal').outerHeight() + $('.user-info').outerHeight() + $('.navbar').innerHeight());
+            var $el = $('.list');
+
+            $el.slimScroll({ destroy: true }).height("auto");
+            $el.parent().find('.slimScrollBar, .slimScrollRail').remove();
+
+            $el.slimscroll({
+                height: height + "px",
+                color: configs.scrollColor,
+                size: configs.scrollWidth,
+                alwaysVisible: configs.scrollAlwaysVisible,
+                borderRadius: configs.scrollBorderRadius,
+                railBorderRadius: configs.scrollRailBorderRadius
+            });
+        }
+    },
+    checkStatuForResize: function checkStatuForResize(firstTime) {
+        var $body = $('body');
+        var $openCloseBar = $('.navbar .navbar-header .bars');
+        var width = $body.width();
+
+        if (firstTime) {
+            $body.find('.content, .sidebar').addClass('no-animate').delay(1000).queue(function () {
+                $(this).removeClass('no-animate').dequeue();
+            });
+        }
+
+        if (width < 1170) {
+            $body.addClass('ls-closed');
+            $openCloseBar.fadeIn();
+        } else {
+            $body.removeClass('ls-closed');
+            $openCloseBar.fadeOut();
+        }
+    },
+    isOpen: function isOpen() {
+        return $('body').hasClass('overlay-open');
+    }
+};
+//==========================================================================================================================
+/* Right Sidebar - Function ================================================================================================
+*  You can manage the right sidebar menu options
+*
+*/
+$.rightSideBar = {
+    activate: function activate() {
+        var _this = this;
+        var $sidebar = $('#rightsidebar');
+        var $overlay = $('.overlay');
+
+        //Close sidebar
+        $(window).click(function (e) {
+            var $target = $(e.target);
+            if (e.target.nodeName.toLowerCase() === 'i') {
+                $target = $(e.target).parent();
+            }
+
+            if (!$target.hasClass('js-right-sidebar') && _this.isOpen() && $target.parents('#rightsidebar').length === 0) {
+                if (!$target.hasClass('bars')) $overlay.fadeOut();
+                $sidebar.removeClass('open');
+            }
+        });
+
+        $('.js-right-sidebar').on('click', function () {
+            $sidebar.toggleClass('open');
+            if (_this.isOpen()) {
+                $overlay.fadeIn();
+            } else {
+                $overlay.fadeOut();
+            }
+        });
+    },
+    isOpen: function isOpen() {
+        return $('.right-sidebar').hasClass('open');
+    }
+    //==========================================================================================================================
+    /* Searchbar - Function ================================================================================================
+    *  You can manage the search bar
+    *
+    */
+};var $searchBar = $('.search-bar');
+$.search = {
+    activate: function activate() {
+        var _this = this;
+
+        //Search button click event
+        $('.js-search').on('click', function () {
+            _this.showSearchBar();
+        });
+
+        //Close search click event
+        $searchBar.find('.close-search').on('click', function () {
+            _this.hideSearchBar();
+        });
+
+        //ESC key on pressed
+        $searchBar.find('input[type="text"]').on('keyup', function (e) {
+            if (e.keyCode == 27) {
+                _this.hideSearchBar();
+            }
+        });
+    },
+    showSearchBar: function showSearchBar() {
+        $searchBar.addClass('open');
+        $searchBar.find('input[type="text"]').focus();
+    },
+    hideSearchBar: function hideSearchBar() {
+        $searchBar.removeClass('open');
+        $searchBar.find('input[type="text"]').val('');
+    }
+    //==========================================================================================================================
+    /* Navbar - Function =======================================================================================================
+    *  You can manage the navbar
+    *
+    */
+};$.navbar = {
+    activate: function activate() {
+        var $body = $('body');
+        var $overlay = $('.overlay');
+
+        //Open left sidebar panel
+        $('.bars').on('click', function () {
+            $body.toggleClass('overlay-open');
+            if ($body.hasClass('overlay-open')) {
+                $overlay.fadeIn();
+            } else {
+                $overlay.fadeOut();
+            }
+        });
+
+        //Close collapse bar on click event
+        $('.nav [data-close="true"]').on('click', function () {
+            var isVisible = $('.navbar-toggle').is(':visible');
+            var $navbarCollapse = $('.navbar-collapse');
+
+            if (isVisible) {
+                $navbarCollapse.slideUp(function () {
+                    $navbarCollapse.removeClass('in').removeAttr('style');
+                });
+            }
+        });
+    }
+    //==========================================================================================================================
+    /* Input - Function ========================================================================================================
+    *  You can manage the inputs(also textareas) with name of class 'form-control'
+    *
+    */
+};$.input = {
+    activate: function activate() {
+        //On focus event
+        $('.form-control').focus(function () {
+            $(this).parent().addClass('focused');
+        });
+
+        //On focusout event
+        $('.form-control').focusout(function () {
+            var $this = $(this);
+            if ($this.parents('.form-group').hasClass('form-float')) {
+                if ($this.val() == '') {
+                    $this.parents('.form-line').removeClass('focused');
+                }
+            } else {
+                $this.parents('.form-line').removeClass('focused');
+            }
+        });
+
+        //On label click
+        $('body').on('click', '.form-float .form-line .form-label', function () {
+            $(this).parent().find('input').focus();
+        });
+    }
+    //==========================================================================================================================
+    /* Form - Select - Function ================================================================================================
+    *  You can manage the 'select' of form elements
+    *
+    */
+};$.select = {
+    activate: function activate() {
+        if ($.fn.selectpicker) {
+            $('select:not(.ms)').selectpicker();
+        }
+    }
+    //==========================================================================================================================
+    /* DropdownMenu - Function =================================================================================================
+    *  You can manage the dropdown menu
+    *
+    */
+
+};$.dropdownMenu = {
+    activate: function activate() {
+        var _this = this;
+
+        $('.dropdown, .dropup, .btn-group').on({
+            "show.bs.dropdown": function showBsDropdown() {
+                var dropdown = _this.dropdownEffect(this);
+                _this.dropdownEffectStart(dropdown, dropdown.effectIn);
+            },
+            "shown.bs.dropdown": function shownBsDropdown() {
+                var dropdown = _this.dropdownEffect(this);
+                if (dropdown.effectIn && dropdown.effectOut) {
+                    _this.dropdownEffectEnd(dropdown, function () {});
+                }
+            },
+            "hide.bs.dropdown": function hideBsDropdown(e) {
+                var dropdown = _this.dropdownEffect(this);
+                if (dropdown.effectOut) {
+                    e.preventDefault();
+                    _this.dropdownEffectStart(dropdown, dropdown.effectOut);
+                    _this.dropdownEffectEnd(dropdown, function () {
+                        dropdown.dropdown.removeClass('open');
+                    });
+                }
+            }
+        });
+    },
+    dropdownEffect: function dropdownEffect(target) {
+        var effectIn = $.options.dropdownMenu.effectIn,
+            effectOut = $.options.dropdownMenu.effectOut;
+        var dropdown = $(target),
+            dropdownMenu = $('.dropdown-menu', target);
+
+        if (dropdown.length > 0) {
+            var udEffectIn = dropdown.data('effect-in');
+            var udEffectOut = dropdown.data('effect-out');
+            if (udEffectIn !== undefined) {
+                effectIn = udEffectIn;
+            }
+            if (udEffectOut !== undefined) {
+                effectOut = udEffectOut;
+            }
+        }
+
+        return {
+            target: target,
+            dropdown: dropdown,
+            dropdownMenu: dropdownMenu,
+            effectIn: effectIn,
+            effectOut: effectOut
+        };
+    },
+    dropdownEffectStart: function dropdownEffectStart(data, effectToStart) {
+        if (effectToStart) {
+            data.dropdown.addClass('dropdown-animating');
+            data.dropdownMenu.addClass('animated dropdown-animated');
+            data.dropdownMenu.addClass(effectToStart);
+        }
+    },
+    dropdownEffectEnd: function dropdownEffectEnd(data, callback) {
+        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        data.dropdown.one(animationEnd, function () {
+            data.dropdown.removeClass('dropdown-animating');
+            data.dropdownMenu.removeClass('animated dropdown-animated');
+            data.dropdownMenu.removeClass(data.effectIn);
+            data.dropdownMenu.removeClass(data.effectOut);
+
+            if (typeof callback == 'function') {
+                callback();
+            }
+        });
+    }
+    //==========================================================================================================================
+    /* Browser - Function ======================================================================================================
+    *  You can manage browser
+    *
+    */
+};var edge = 'Microsoft Edge';
+var ie10 = 'Internet Explorer 10';
+var ie11 = 'Internet Explorer 11';
+var opera = 'Opera';
+var firefox = 'Mozilla Firefox';
+var chrome = 'Google Chrome';
+var safari = 'Safari';
+
+$.browser = {
+    activate: function activate() {
+        var _this = this;
+        var className = _this.getClassName();
+
+        if (className !== '') $('html').addClass(_this.getClassName());
+    },
+    getBrowser: function getBrowser() {
+        var userAgent = navigator.userAgent.toLowerCase();
+
+        if (/edge/i.test(userAgent)) {
+            return edge;
+        } else if (/rv:11/i.test(userAgent)) {
+            return ie11;
+        } else if (/msie 10/i.test(userAgent)) {
+            return ie10;
+        } else if (/opr/i.test(userAgent)) {
+            return opera;
+        } else if (/chrome/i.test(userAgent)) {
+            return chrome;
+        } else if (/firefox/i.test(userAgent)) {
+            return firefox;
+        } else if (!!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/)) {
+            return safari;
+        }
+
+        return undefined;
+    },
+    getClassName: function getClassName() {
+        var browser = this.getBrowser();
+
+        if (browser === edge) {
+            return 'edge';
+        } else if (browser === ie11) {
+            return 'ie11';
+        } else if (browser === ie10) {
+            return 'ie10';
+        } else if (browser === opera) {
+            return 'opera';
+        } else if (browser === chrome) {
+            return 'chrome';
+        } else if (browser === firefox) {
+            return 'firefox';
+        } else if (browser === safari) {
+            return 'safari';
+        } else {
+            return '';
+        }
+    }
+    //==========================================================================================================================
+    /* Delete - Function =======================================================================================================
+    *  Sweetalert on delete
+    *
+    */
+
+};$.delete = {
+    activate: function activate() {
+        $('[data-target="#delete-item"]').on('click', function (e) {
+            e.preventDefault();
+            var $href = $(this).attr('href');
+            var $tr = $(this).parents('tr');
+            Swal({
+                title: "Etes-vous sûr de vouloir supprimer cet élément ?",
+                text: "Vous ne pourrez plus revenir en arrière !",
+                type: "warning",
+                showCancelButton: true,
+                cancelButtonText: "Annuler",
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Oui",
+                closeOnConfirm: false,
+                html: false
+            }, function () {
+                axios.delete($href).then(function (response) {
+                    Swal("OK", "L'élément a bien été supprimé.", "success");
+                    $tr.remove();
+                }).catch(function (error) {
+                    Swal("Erreur", "Une erreur est survenue.", "error");
+                    console.log(error);
+                });
+            });
+        });
+    }
+
+    //==========================================================================================================================
+    /* Toggle active - Function ================================================================================================
+    *
+    */
+};$.toggleactive = {
+    activate: function activate() {
+        $('body').on('click', 'input.toggle-active', function (e) {
+            var $this = $(this);
+            var $href = $(this).attr('href');
+            axios.post($href).then(function (response) {}).catch(function (error) {});
+        });
+    }
+
+    //==========================================================================================================================
+    /* Bootstrap tags input - Function =========================================================================================
+    *
+    */
+};$.tags = {
+    activate: function activate() {
+        $("input[data-role=tagsinput]").tagsinput();
+    }
+    //==========================================================================================================================
+
+};$(function () {
+    $.browser.activate();
+    $.leftSideBar.activate();
+    $.rightSideBar.activate();
+    $.navbar.activate();
+    $.dropdownMenu.activate();
+    $.input.activate();
+    $.select.activate();
+    $.search.activate();
+    $.delete.activate();
+    $.toggleactive.activate();
+    $.tags.activate();
+    setTimeout(function () {
+        $('.page-loader-wrapper').fadeOut();
+    }, 50);
+});
 
 /***/ })
 /******/ ]);
