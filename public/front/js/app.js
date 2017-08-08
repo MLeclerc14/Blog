@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 70);
+/******/ 	return __webpack_require__(__webpack_require__.s = 74);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -29183,14 +29183,18 @@ module.exports = function spread(callback) {
 /* 67 */,
 /* 68 */,
 /* 69 */,
-/* 70 */
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(71);
+module.exports = __webpack_require__(75);
 
 
 /***/ }),
-/* 71 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -29200,7 +29204,7 @@ module.exports = __webpack_require__(71);
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(72);
+__webpack_require__(76);
 
 window.Vue = __webpack_require__(2);
 
@@ -29210,14 +29214,14 @@ window.Vue = __webpack_require__(2);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', __webpack_require__(74));
+Vue.component('example', __webpack_require__(78));
 
 var app = new Vue({
   el: '#app'
 });
 
 /***/ }),
-/* 72 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -29230,7 +29234,7 @@ window._ = __webpack_require__(10);
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(73);
+  window.$ = window.jQuery = __webpack_require__(77);
 } catch (e) {}
 
 /**
@@ -29273,7 +29277,7 @@ if (token) {
 // });
 
 /***/ }),
-/* 73 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -39533,15 +39537,15 @@ return jQuery;
 
 
 /***/ }),
-/* 74 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(3)(
   /* script */
-  __webpack_require__(75),
+  __webpack_require__(79),
   /* template */
-  __webpack_require__(76),
+  __webpack_require__(80),
   /* styles */
   null,
   /* scopeId */
@@ -39573,7 +39577,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 75 */
+/* 79 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -39602,7 +39606,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 76 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;

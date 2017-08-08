@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 32);
+/******/ 	return __webpack_require__(__webpack_require__.s = 33);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -29146,15 +29146,6 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 32 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(33);
-__webpack_require__(68);
-module.exports = __webpack_require__(69);
-
-
-/***/ }),
-/* 33 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -29172,7 +29163,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Sidenav__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Sidenav___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_Sidenav__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__vuex__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__router__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__router__ = __webpack_require__(55);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -29224,7 +29215,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0_vuex_router_sync__["sync"])(__WEBPACK_IMPORTE
  */
 
 var app = new __WEBPACK_IMPORTED_MODULE_2_vue___default.a({
-  // store, // injects the Store into all components
+  store: __WEBPACK_IMPORTED_MODULE_6__vuex__["a" /* default */], // injects the Store into all components
   router: __WEBPACK_IMPORTED_MODULE_7__router__["a" /* default */], // make Router work with the application
   el: '#app',
   render: function render(h) {
@@ -29233,6 +29224,15 @@ var app = new __WEBPACK_IMPORTED_MODULE_2_vue___default.a({
 });
 
 // https://forum.vuejs.org/t/structuring-very-large-applications/840/3 structuring project
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(32);
+__webpack_require__(72);
+module.exports = __webpack_require__(73);
+
 
 /***/ }),
 /* 34 */
@@ -29738,9 +29738,12 @@ if (false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__state__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mutations__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__actions__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modules__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__getters__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__actions__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modules__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modules___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__modules__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__plugins__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__getters__ = __webpack_require__(54);
+
 
 
 
@@ -29755,8 +29758,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
   state: __WEBPACK_IMPORTED_MODULE_2__state__["a" /* default */],
   mutations: __WEBPACK_IMPORTED_MODULE_3__mutations__["a" /* default */],
   actions: __WEBPACK_IMPORTED_MODULE_4__actions__["a" /* default */],
-  modules: __WEBPACK_IMPORTED_MODULE_5__modules__["a" /* default */],
-  getters: __WEBPACK_IMPORTED_MODULE_6__getters__,
+  modules: __WEBPACK_IMPORTED_MODULE_5__modules__["default"],
+  plugins: __WEBPACK_IMPORTED_MODULE_6__plugins__["a" /* default */],
+  getters: __WEBPACK_IMPORTED_MODULE_7__getters__,
   strict: "development" !== 'production'
 }));
 
@@ -30585,6 +30589,9 @@ var index_esm = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__types__ = __webpack_require__(50);
+
+
 /* harmony default export */ __webpack_exports__["a"] = ({});
 
 /***/ }),
@@ -30592,7 +30599,8 @@ var index_esm = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony default export */ __webpack_exports__["a"] = ({});
+/* unused harmony export USERS_SET_DATA */
+var USERS_SET_DATA = 'USERS_SET_DATA';
 
 /***/ }),
 /* 51 */
@@ -30603,6 +30611,24 @@ var index_esm = {
 
 /***/ }),
 /* 52 */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed: SyntaxError: C:/laragon/www/blog/resources/assets/back/js/vuex/modules.js: Unexpected token (3:17)\n\n\u001b[0m \u001b[90m 1 | \u001b[39m\u001b[36mimport\u001b[39m { vuex as app } from \u001b[32m'../app'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 2 | \u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 3 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m { \u001b[33m...\u001b[39mapp\u001b[33m.\u001b[39mmodules }\n \u001b[90m   | \u001b[39m                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 4 | \u001b[39m\u001b[0m\n");
+
+/***/ }),
+/* 53 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app__ = __webpack_require__(32);
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = ([].concat(_toConsumableArray(__WEBPACK_IMPORTED_MODULE_0__app__["vuex"].plugins)));
+
+/***/ }),
+/* 54 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -30610,15 +30636,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
-/* 53 */
+/* 55 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__beforeEach__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_index__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__beforeEach__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_index__ = __webpack_require__(58);
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 
@@ -30642,7 +30668,7 @@ router.beforeEach(__WEBPACK_IMPORTED_MODULE_2__beforeEach__["a" /* default */]);
 /* harmony default export */ __webpack_exports__["a"] = (router);
 
 /***/ }),
-/* 54 */
+/* 56 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33154,7 +33180,7 @@ if (inBrowser && window.Vue) {
 
 
 /***/ }),
-/* 55 */
+/* 57 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33177,22 +33203,31 @@ var beforeEach = function beforeEach(to, from, next) {
 /* harmony default export */ __webpack_exports__["a"] = (beforeEach);
 
 /***/ }),
-/* 56 */
+/* 58 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__routes__ = __webpack_require__(57);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__routes__["a"]; });
-// export { default as vuex } from './vuex';
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vuex__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vuex___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vuex__);
+/* unused harmony reexport vuex */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(60);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__routes__["a"]; });
+
 
 
 /***/ }),
-/* 57 */
+/* 59 */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed: SyntaxError: C:/laragon/www/blog/resources/assets/back/js/app/vuex.js: Unexpected token (9:45)\n\n\u001b[0m \u001b[90m  7 | \u001b[39m\u001b[36mconst\u001b[39m keys \u001b[33m=\u001b[39m \u001b[33mObject\u001b[39m\u001b[33m.\u001b[39mkeys(vuex)\u001b[33m;\u001b[39m\n \u001b[90m  8 | \u001b[39m\u001b[90m// process and extract data (modules and plugins)\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 | \u001b[39m\u001b[36mconst\u001b[39m modules \u001b[33m=\u001b[39m keys\u001b[33m.\u001b[39mreduce((acc\u001b[33m,\u001b[39m key) \u001b[33m=>\u001b[39m ({ \u001b[33m...\u001b[39macc\u001b[33m,\u001b[39m [key]\u001b[33m:\u001b[39m vuex[key]\u001b[33m.\u001b[39mmodule })\u001b[33m,\u001b[39m {})\u001b[33m;\u001b[39m\n \u001b[90m    | \u001b[39m                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 | \u001b[39m\u001b[36mconst\u001b[39m plugins \u001b[33m=\u001b[39m keys\u001b[33m.\u001b[39mreduce((acc\u001b[33m,\u001b[39m key) \u001b[33m=>\u001b[39m [\u001b[33m...\u001b[39macc\u001b[33m,\u001b[39m vuex[key]\u001b[33m.\u001b[39mplugin]\u001b[33m,\u001b[39m [])\u001b[33m.\u001b[39mfilter(isFunction)\u001b[33m;\u001b[39m\n \u001b[90m 11 | \u001b[39m\n \u001b[90m 12 | \u001b[39m\u001b[0m\n");
+
+/***/ }),
+/* 60 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__users__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dashboard__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__users__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dashboard__ = __webpack_require__(67);
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 
@@ -33201,36 +33236,38 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 /* harmony default export */ __webpack_exports__["a"] = ([].concat(_toConsumableArray(__WEBPACK_IMPORTED_MODULE_0__users__["a" /* routes */]), _toConsumableArray(__WEBPACK_IMPORTED_MODULE_1__dashboard__["a" /* routes */])));
 
 /***/ }),
-/* 58 */
+/* 61 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__routes__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__routes__ = __webpack_require__(62);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__routes__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__vuex__ = __webpack_require__(66);
+/* unused harmony reexport vuex */
 
-// export { default as vuex } from './store';
+
 
 /***/ }),
-/* 59 */
+/* 62 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = ([{
   name: 'users.index',
   path: '/users',
-  component: __webpack_require__(60)
+  component: __webpack_require__(63)
 }]);
 
 /***/ }),
-/* 60 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(3)(
   /* script */
-  __webpack_require__(61),
+  __webpack_require__(64),
   /* template */
-  __webpack_require__(62),
+  __webpack_require__(65),
   /* styles */
   null,
   /* scopeId */
@@ -33262,7 +33299,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 61 */
+/* 64 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33343,7 +33380,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 62 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -33410,36 +33447,72 @@ if (false) {
 }
 
 /***/ }),
-/* 63 */
+/* 66 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__routes__ = __webpack_require__(64);
+throw new Error("Cannot find module \"../../vuex/types\"");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var state = {
+  list: [],
+  pagination: {}
+};
+
+var mutations = _defineProperty({}, __WEBPACK_IMPORTED_MODULE_0__vuex_types__["USERS_SET_DATA"], function (st, obj) {
+  st.list = obj.list;
+  st.pagination = obj.pagination;
+});
+
+var actions = {
+  usersSetData: function usersSetData(_ref, obj) {
+    var commit = _ref.commit;
+
+    commit(__WEBPACK_IMPORTED_MODULE_0__vuex_types__["USERS_SET_DATA"], obj);
+  }
+};
+
+var module = {
+  state: state,
+  mutations: mutations,
+  actions: actions
+};
+
+/* unused harmony default export */ var _unused_webpack_default_export = ({ module: module });
+
+/***/ }),
+/* 67 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__routes__ = __webpack_require__(68);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__routes__["a"]; });
 
 // export { default as vuex } from './store';
 
 /***/ }),
-/* 64 */
+/* 68 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = ([{
   name: 'dashboard.index',
   path: '/',
-  component: __webpack_require__(65)
+  component: __webpack_require__(69)
 }]);
 
 /***/ }),
-/* 65 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(3)(
   /* script */
-  __webpack_require__(66),
+  __webpack_require__(70),
   /* template */
-  __webpack_require__(67),
+  __webpack_require__(71),
   /* styles */
   null,
   /* scopeId */
@@ -33471,7 +33544,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 66 */
+/* 70 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33490,7 +33563,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 67 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -33511,13 +33584,13 @@ if (false) {
 }
 
 /***/ }),
-/* 68 */
+/* 72 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 69 */
+/* 73 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
