@@ -6,17 +6,25 @@
  */
 
 require('./bootstrap');
-require('./theme');
 
 import { sync } from 'vuex-router-sync';
+import VueMaterial from 'vue-material';
 import Vue from 'vue';
 import Root from './Root';
+
+// Import shared components
+import PageContent from './components/PageContent';
+import Sidenav from './components/Sidenav';
+
+// Register shared components
+Vue.component('page-content', PageContent);
+Vue.component('sidenav', Sidenav);
 
 /**
  * This is the Vuex store and it is
  * avaible to all your components
  */
-import store from './store';
+import store from './vuex';
 
 /**
  * This is the Router
@@ -24,10 +32,18 @@ import store from './store';
 import router from './router';
 
 /**
+ * Vue Material
+ */
+Vue.use(VueMaterial)
+
+
+/**
  * Keep vue-router and vuex store in sync.*
  * https://github.com/vuejs/vuex-router-sync/tree/next
  */
 sync(store, router);
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -36,8 +52,8 @@ sync(store, router);
  */
 
 
-const app = new Vue({
-  store, // injects the Store into all components
+let app = new Vue({
+ // store, // injects the Store into all components
   router, // make Router work with the application
   el: '#app',
   render: h => h(Root)

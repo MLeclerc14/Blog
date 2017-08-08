@@ -1,15 +1,15 @@
 <template>
-  <div>
-    <navbar></navbar>
-    yo
-    <main class="main-content">
-        <router-view></router-view>
-    </main>
-  </div>
+    <div class="container">
+        <sidenav></sidenav>
+        <transition name="md-router" appear>
+            <router-view></router-view>
+        </transition>
+    </div>
 </template>
 
 <script>
-export default {
 
+export default {
+    name: 'Root'
 }
 </script>

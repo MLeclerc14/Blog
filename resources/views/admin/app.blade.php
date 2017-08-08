@@ -6,22 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="api-token" content="{{ Auth::user()->api_token }}">
+        <title>{{ config('app.name', '') }}</title>
         <script>
             window.Laravel = <?php echo json_encode([
                 'csrfToken' => csrf_token(),
             ]); ?>
         </script>
-        @section('header')
-            <title>{{ config('app.name', '') }}</title>
-        @show
         <link rel="stylesheet" href="/back/css/app.css">
     </head>
     <body>
-        <div id="app">
-            <div class="content">
-                @yield('content')
-            </div>
-        </div>
+        <div id="app"></div>
         <script src="/back/js/app.js"></script>
     </body>
 </html>

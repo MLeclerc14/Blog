@@ -1,7 +1,7 @@
 export default [
   {
-    name: 'users.index',
-    path: '/users',
+    name: 'dashboard.index',
+    path: '/',
     component: require('./components/Main.vue')
   }
 ]

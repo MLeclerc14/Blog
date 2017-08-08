@@ -17,7 +17,9 @@ Route::name('home')->get('/', 'PageController@home');
 Auth::routes();
 
 // Admin
-Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin'], function(){
+Route::group(['as' => 'admin.', 'namespace' => 'Admin'], function(){
     // Dashboard route
-    Route::name('dashboard.index')->get('/', 'DashboardController@index');
+    Route::name('app')->get('{view}', function(){
+        return view('admin.app');
+    })->where('view', '(.*)');
 });
