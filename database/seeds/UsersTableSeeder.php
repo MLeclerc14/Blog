@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class UsersTableSeeder extends Seeder
@@ -13,12 +12,17 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        // User::truncate();
+
         User::create([
+            'active'    => true,
             'firstname' => 'Maxime',
             'lastname'  => 'Leclerc',
             'email'     => 'contact@maxime-leclerc.com',
-            'password'  =>  Hash::make('123'),
+            'password'  =>  bcrypt('123'),
             'api_token' =>  str_random(60)
         ]);
+
+        factory(User::class, 20)->create();
     }
 }

@@ -1,8 +1,6 @@
 {
-    "/dashboard-bundle.js": "/dashboard-bundle.js",
     "/back/js/app.js": "/back/js/app.js",
-    "/front/css/app.css": "/front/css/app.css",
-    "/front/js/app.js": "/front/js/app.js",
     "/back/css/app.css": "/back/css/app.css",
-    "/users-bundle.js": "/users-bundle.js"
+    "/front/css/app.css": "/front/css/app.css",
+    "/front/js/app.js": "/front/js/app.js"
 }
