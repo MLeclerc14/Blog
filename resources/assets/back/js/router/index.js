@@ -11,7 +11,7 @@ const router = new Router({
   routes,
   base: '/admin/',
   linkActiveClass: 'active',
-  mode: 'history'
+  momde: 'history'
 });
 
 router.beforeEach(beforeEach);

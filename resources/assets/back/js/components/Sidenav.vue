@@ -1,6 +1,6 @@
 <template>
     <md-sidenav class="main-sidebar md-left md-fixed" md-swipeable ref="main-sidebar">
-        <md-toolbar md-theme="white">
+        <md-toolbar>
             <div class="avatar-user">
                 <md-avatar class="md-avatar-icon md-large">
                     <md-icon>account_circle</md-icon>

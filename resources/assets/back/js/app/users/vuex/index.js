@@ -1,28 +1,62 @@
-import * as TYPES from '../../vuex/types';
+import { default as api } from '../api';
+import * as types from '../../../vuex/mutation-types';
 
+// initial state
 const state = {
-  list: [],
-  pagination: {},
-}
+  all: []
+};
 
+// getters
+const getters = {
+    users: state => state.all
+};
 
-const mutations = {
-  [TYPES.USERS_SET_DATA](st, obj) {
-    st.list = obj.list
-    st.pagination = obj.pagination
-  },
-}
-
+// actions
 const actions = {
-  usersSetData({ commit }, obj) {
-    commit(TYPES.USERS_SET_DATA, obj)
-  },
-}
+    all ({ commit }) {
+        api.all(users => {
+            commit(types.GET_USERS, { users });
+        });
+    },
+    store ({ commit }, data) {
+        api.store(data, response => {
+            if (response.status === 200) {
+                commit(types.STORE_USER, response);
+            }
+            return response;
+        });
+    },
+    edit ({ commit }, user){
+        commit(types.EDIT_USER, user);
+    },
+    remove ({ commit }, user) {
+        let id = user.id;
+        api.remove(id, user, response => {
+            commit(types.DELETE_USER, user);
+        });
+    }
+};
 
-const module = {
-  state,
-  mutations,
-  actions,
-}
+// mutations
+const mutations = {
+    [types.GET_USERS] (state, { users }) {
+        state.all = users;
+    },
+    [types.DELETE_USER] (state, { user }) {
+        let users = state.all;
+        users.splice(users.indexOf(user), 1);
+    },
+    [types.EDIT_USER] (state, user) {
+        let active = state.all.find(i => i.id == user);
+        if (active) {
+            state.active = active;
+        }
+    }
+};
 
-export default { module }
+export default {
+    state,
+    getters,
+    actions,
+    mutations
+}
