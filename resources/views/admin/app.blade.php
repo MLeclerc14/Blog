@@ -12,6 +12,7 @@
                 'csrfToken' => csrf_token(),
             ]); ?>
         </script>
+        <script src="//{{ Request::getHost() }}:6001/socket.io/socket.io.js"></script>
         <link rel="stylesheet" href="/back/css/app.css">
     </head>
     <body>
